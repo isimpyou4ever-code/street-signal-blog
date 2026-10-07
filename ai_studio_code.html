@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Street Signal | Streetwear &amp; Anime Culture Blog</title>
+<meta name="description" content="Street Signal is a blog about streetwear, anime fashion, gaming style and the culture behind what we wear.">
+<style>
+  :root{
+    --bg:#0e0e11; --card:#17171c; --text:#ecebf0; --muted:#9a98a6;
+    --accent:#ff3d6e; --accent2:#7c5cff; --border:#2a2a33;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+  a{color:inherit;text-decoration:none}
+  header{position:sticky;top:0;z-index:10;background:rgba(14,14,17,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+  .nav{max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+  .logo span{color:var(--accent)}
+  .nav small{color:var(--muted)}
+  .hero{max-width:1100px;margin:0 auto;padding:56px 20px 24px}
+  .hero h1{font-size:clamp(2rem,6vw,3.6rem);line-height:1.1;font-weight:800}
+  .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:var(--muted);margin-top:14px;max-width:560px}
+  .filters{max-width:1100px;margin:0 auto;padding:12px 20px;display:flex;gap:8px;flex-wrap:wrap}
+  .filters button{background:transparent;color:var(--muted);border:1px solid var(--border);padding:6px 14px;border-radius:999px;cursor:pointer;font-size:.85rem}
+  .filters button.active,.filters button:hover{color:#fff;border-color:var(--accent);background:rgba(255,61,110,.12)}
+  .grid{max-width:1100px;margin:0 auto;padding:12px 20px 60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:transform .2s,border-color .2s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-4px);border-color:var(--accent)}
+  .card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:#222}
+  .card .body{padding:16px 18px 20px}
+  .tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}
+  .card h2{font-size:1.15rem;margin:6px 0 8px;line-height:1.3}
+  .card p{color:var(--muted);font-size:.92rem}
+  .meta{margin-top:12px;font-size:.78rem;color:var(--muted)}
+  article{max-width:760px;margin:0 auto;padding:32px 20px 70px}
+  article .back{display:inline-block;color:var(--muted);margin-bottom:18px}
+  article .back:hover{color:var(--accent)}
+  article h1{font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.2;margin:8px 0}
+  article img{width:100%;border-radius:14px;margin:20px 0;aspect-ratio:16/9;object-fit:cover;background:#222}
+  article p{margin:0 0 18px;font-size:1.05rem;color:#d8d7df}
+  .nextprev{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--border);padding-top:18px;margin-top:30px;font-size:.9rem;color:var(--muted)}
+  .nextprev a:hover{color:var(--accent)}
+  footer{border-top:1px solid var(--border);text-align:center;padding:26px 20px;color:var(--muted);font-size:.85rem}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="#/" class="logo">Street<span>Signal</span></a>
+    <small>Streetwear &middot; Anime &middot; Culture</small>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <h1>What you wear is <em>what you say.</em></h1>
+    <p>Ten stories on streetwear, anime-inspired fashion and the gaming culture shaping how a new generation dresses.</p>
+  </section>
+  <div class="filters" id="filters"></div>
+  <section class="grid" id="grid"></section>
+</main>
+
+<main id="post" class="hidden"></main>
+
+<footer>&copy; <span id="yr"></span> Street Signal. Built as a student web project.</footer>
+
+<script>
+/* ------------------------------------------------------------------
+   TO REPLACE IMAGES: put your own photos in an "images" folder next to
+   this file, named post-1.jpg ... post-10.jpg.
+   If an image is missing, a coloured placeholder is shown automatically.
+------------------------------------------------------------------- */
+const posts = [
+  {id:1, title:"The Rise of Anime-Inspired Streetwear", tag:"Culture", date:"2026-09-02", read:"5 min",
+   image:"images/post-1.jpg",
+   excerpt:"How oversized tees and bold manga prints went from fan merch to mainstream fashion.",
+   body:["A decade ago, wearing an anime print outside a convention would get a few raised eyebrows. Today, it can get you compliments at a college campus or a mall.",
+         "Streetwear brands noticed that fans wanted clothing that nodded to their favourite series without looking like a costume. The answer was subtle references: a kanji graphic, a colour palette borrowed from a mecha, a back print that rewards people who know the story.",
+         "The result is a style where the references are for those who get them, and the silhouette still works for everyone else. That balance is why the category keeps growing."]},
+  {id:2, title:"Oversized Fits: A Beginner's Guide", tag:"Style", date:"2026-09-06", read:"4 min",
+   image:"images/post-2.jpg",
+   excerpt:"Baggy doesn't mean sloppy. Here is how to get proportions right.",
+   body:["Oversized is about intention. The shoulder drop, sleeve length and hem should all look chosen, not accidental.",
+         "Start with one oversized piece and keep the rest of the outfit fitted. A boxy tee works well with straight or tapered pants, while a big hoodie pairs nicely with slimmer bottoms.",
+         "Check the mirror from the side too. If the outfit forms a clean shape from shoulder to shoe, you have got it right."]},
+  {id:3, title:"Gaming Culture Meets the Runway", tag:"Gaming", date:"2026-09-10", read:"6 min",
+   image:"images/post-3.jpg",
+   excerpt:"Pixel graphics, controller motifs and esports jerseys are reshaping casual wear.",
+   body:["Gaming has its own visual language: pixel art, neon HUDs, retro consoles. Designers now borrow it the way earlier generations borrowed from skate or punk.",
+         "Esports teams have also pushed jersey design forward. Clean lines, sponsor patches and bold colour blocking now show up in everyday outfits.",
+         "Expect more crossovers between game studios and fashion labels, because the audience already spends hours inside these worlds."]},
+  {id:4, title:"Sneakers Under \u20B95,000 That Still Look Premium", tag:"Footwear", date:"2026-09-14", read:"5 min",
+   image:"images/post-4.jpg",
+   excerpt:"Good taste does not require a huge budget. Look for clean lines and quality materials.",
+   body:["A premium look comes from shape and finish, not logos. Minimal leather-look uppers, neutral colours and a chunky but clean sole go a long way.",
+         "Check the stitching and the insole before buying. Those two details show quality faster than any marketing photo.",
+         "Keep them clean. A well-maintained mid-range pair beats a neglected expensive one every time."]},
+  {id:5, title:"How to Build a Capsule Wardrobe with Graphic Tees", tag:"Style", date:"2026-09-18", read:"4 min",
+   image:"images/post-5.jpg",
+   excerpt:"Ten pieces, many outfits. Graphic tees can anchor a surprisingly versatile wardrobe.",
+   body:["Pick a colour base first: black, off-white and one accent. Every graphic tee should work with at least three other pieces you own.",
+         "Mix loud and quiet. If the tee has a busy back print, keep the front plain and the layers simple.",
+         "Rotate rather than accumulate. A small set you wear often will always look better than a closet full of one-time buys."]},
+  {id:6, title:"Behind the Print: How Graphic Tees Are Made", tag:"Design", date:"2026-09-22", read:"6 min",
+   image:"images/post-6.jpg",
+   excerpt:"From sketch to screen print, the journey of a graphic from idea to fabric.",
+   body:["Every design starts as a rough idea, then moves into vector or raster artwork. Designers test it on mockups to see how it sits on the chest or back.",
+         "Printing methods differ. Screen printing gives rich colour and durability, DTG handles detailed artwork in small batches, and embroidery adds texture.",
+         "Fabric choice matters as much as the art. A heavier cotton holds a print better and drapes well for oversized cuts."]},
+  {id:7, title:"Social Media and the Speed of Fashion Trends", tag:"Culture", date:"2026-09-26", read:"5 min",
+   image:"images/post-7.jpg",
+   excerpt:"Trends now spread in days, not seasons. What does that mean for small brands?",
+   body:["Short video platforms turned every outfit into potential content. A single clip can send a piece sold out within hours.",
+         "For small brands, that speed is both a chance and a risk. Agile production helps, but authentic storytelling keeps customers after the trend fades.",
+         "The brands that last are the ones that build a community, not just a viral moment."]},
+  {id:8, title:"Sustainable Streetwear: Is It Possible?", tag:"Sustainability", date:"2026-09-30", read:"6 min",
+   image:"images/post-8.jpg",
+   excerpt:"Limited drops and organic cotton sound good, but what actually reduces impact?",
+   body:["Fashion has a heavy environmental footprint, from water use to waste. Streetwear's drop culture can make that worse if it pushes impulse buying.",
+         "Practical steps include made-to-order production, better fabrics, durable construction and honest labelling about what is and is not sustainable.",
+         "As buyers, the biggest win is simple: buy less, wear more and repair what you can."]},
+  {id:9, title:"Colour Theory for Everyday Outfits", tag:"Style", date:"2026-10-03", read:"4 min",
+   image:"images/post-9.jpg",
+   excerpt:"A few colour rules make outfit decisions faster and more confident.",
+   body:["Start with neutrals and add one accent. Black, grey, navy and white are forgiving and make bold colours stand out.",
+         "Use the 60-30-10 idea: 60 percent main colour, 30 percent secondary, 10 percent accent. It keeps outfits balanced.",
+         "Skin tone and context matter. Try colours in natural light and notice which ones make you feel good, not just which ones photograph well."]},
+  {id:10, title:"Starting Your Own Clothing Brand: First Lessons", tag:"Business", date:"2026-10-06", read:"7 min",
+   image:"images/post-10.jpg",
+   excerpt:"Lessons on audience, design workflow and testing before you scale.",
+   body:["Start with a clear audience. Knowing who you are designing for makes every decision easier, from graphics to pricing.",
+         "Test small. Order limited stock, run low-budget ads, and watch which designs people actually click and buy.",
+         "Build a repeatable workflow for designing, listing and marketing. Consistency beats occasional bursts of effort."]}
+];
+
+const $ = s => document.querySelector(s);
+const grid = $("#grid"), filters = $("#filters"), home = $("#home"), postView = $("#post");
+$("#yr").textContent = new Date().getFullYear();
+
+const colors = ["#ff3d6e","#7c5cff","#16b8a6","#f5a524","#3b82f6"];
+function fallback(img){
+  const c = colors[(img.dataset.id||0) % colors.length];
+  img.onerror = null;
+  img.src = "data:image/svg+xml;utf8," + encodeURIComponent(
+    `<svg xmlns='http://www.w3.org/2000/svg' width='800' height='500'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='${c}'/><stop offset='1' stop-color='#0e0e11'/></linearGradient></defs><rect width='800' height='500' fill='url(#g)'/></svg>`);
+}
+function esc(s){return s.replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]))}
+function fmt(d){return new Date(d).toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}
+
+let activeTag = "All";
+function renderFilters(){
+  const tags = ["All", ...new Set(posts.map(p=>p.tag))];
+  filters.innerHTML = tags.map(t=>`<button class="${t===activeTag?"active":""}" data-tag="${esc(t)}">${esc(t)}</button>`).join("");
+}
+function renderGrid(){
+  const list = activeTag==="All" ? posts : posts.filter(p=>p.tag===activeTag);
+  grid.innerHTML = list.map(p=>`
+    <a class="card" href="#/post/${p.id}">
+      <img src="${esc(p.image)}" alt="${esc(p.title)}" data-id="${p.id}" loading="lazy" onerror="fallback(this)">
+      <div class="body">
+        <div class="tag">${esc(p.tag)}</div>
+        <h2>${esc(p.title)}</h2>
+        <p>${esc(p.excerpt)}</p>
+        <div class="meta">${fmt(p.date)} &middot; ${esc(p.read)} read</div>
+      </div>
+    </a>`).join("");
+}
+filters.addEventListener("click", e=>{
+  const b = e.target.closest("button"); if(!b) return;
+  activeTag = b.dataset.tag; renderFilters(); renderGrid();
+});
+
+function renderPost(id){
+  const i = posts.findIndex(p=>p.id===id);
+  if(i<0){location.hash="#/";return}
+  const p = posts[i], prev = posts[i-1], next = posts[i+1];
+  document.title = p.title + " | Street Signal";
+  postView.innerHTML = `
+    <article>
+      <a class="back" href="#/">&larr; All posts</a>
+      <div class="tag">${esc(p.tag)}</div>
+      <h1>${esc(p.title)}</h1>
+      <div class="meta">${fmt(p.date)} &middot; ${esc(p.read)} read</div>
+      <img src="${esc(p.image)}" alt="${esc(p.title)}" data-id="${p.id}" onerror="fallback(this)">
+      ${p.body.map(t=>`<p>${esc(t)}</p>`).join("")}
+      <div class="nextprev">
+        ${prev?`<a href="#/post/${prev.id}">&larr; ${esc(prev.title)}</a>`:"<span></span>"}
+        ${next?`<a href="#/post/${next.id}">${esc(next.title)} &rarr;</a>`:"<span></span>"}
+      </div>
+    </article>`;
+}
+
+function route(){
+  const m = location.hash.match(/^#\/post\/(\d+)/);
+  if(m){
+    home.classList.add("hidden"); postView.classList.remove("hidden");
+    renderPost(+m[1]); window.scrollTo(0,0);
+  } else {
+    postView.classList.add("hidden"); home.classList.remove("hidden");
+    document.title = "Street Signal | Streetwear & Anime Culture Blog";
+  }
+}
+window.addEventListener("hashchange", route);
+renderFilters(); renderGrid(); route();
+</script>
+</body>
+</html>
