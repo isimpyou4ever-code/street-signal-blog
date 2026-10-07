@@ -136,7 +136,8 @@ const posts = [
          "Build a repeatable workflow for designing, listing and marketing. Consistency beats occasional bursts of effort."]}
 ];
 
-const $ = s => document.querySelector(s);
+posts.forEach(p => p.image = encodeURI("html image " + p.id + ".jpg"));
+  const $ = s => document.querySelector(s);
 const grid = $("#grid"), filters = $("#filters"), home = $("#home"), postView = $("#post");
 $("#yr").textContent = new Date().getFullYear();
 
